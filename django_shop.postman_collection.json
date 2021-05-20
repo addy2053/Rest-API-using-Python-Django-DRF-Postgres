@@ -1,0 +1,208 @@
+{
+	"info": {
+		"_postman_id": "5991f1f8-93e7-4b6f-a4e8-83b2b44dabcb",
+		"name": "django_shop",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://127.0.0.1:8000/token/",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "mk",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "mk",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/token/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"token",
+						""
+					]
+				},
+				"description": "Get token\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/v1/orders",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjIxNTA4NDU4LCJqdGkiOiI4YzNhMTAwYTZhZmQ0ZDNkYmY5OTEzOTUxYzdjOTkyNiIsInVzZXJfaWQiOjF9.tsixIgbvq6aFCuNped60ADrazZahe4hhze0lil1Nd9M",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "2",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/orders",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"orders"
+					]
+				},
+				"description": "Get orders\r\nAdd id = {id_number} for specific order"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/v1/orders/create/",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjIxNTA4NzAwLCJqdGkiOiI4NmFkMWY5YjE0NGU0MzQwYjAzMTJmNGM1MmIxMDBmZCIsInVzZXJfaWQiOjF9.OPRO3BvRmmMgW-CWFcDXFkUIgxnZ220CzrSqucUOHSI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"order_number\": 7,\r\n    \"customer\": 2,\r\n    \"products\": [1,2]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/orders/create/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"orders",
+						"create",
+						""
+					]
+				},
+				"description": "Create order"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/v1/orders/update/2/",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n    \"order_number\": 7,\r\n    \"customer\": 2,\r\n    \"products\": [1,2]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/orders/update/2/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"orders",
+						"update",
+						"2",
+						""
+					]
+				},
+				"description": "Update order"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/v1/orders/delete/2/",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/orders/delete/2/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"orders",
+						"delete",
+						"2",
+						""
+					]
+				},
+				"description": "Delete Order\r\n"
+			},
+			"response": []
+		}
+	]
+}
